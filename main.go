@@ -26,7 +26,7 @@ func startWather() {
 	var w = ytuploader.NewWatcher("config.yaml")
 	for f := range w.Watch() {
 		log.Println("Новый файл:", f.Fullpath())
-		if err := c.UploadVideo(`/mnt/d/DEV/youtube_uploader/videos/one/testfile.mp4`); err != nil {
+		if err := c.UploadVideo(f.Fullpath()); err != nil {
 			log.Println("ERROR UPLOAD:", err)
 		}
 	}
